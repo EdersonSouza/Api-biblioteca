@@ -1,7 +1,11 @@
 import { Schema, model } from "mongoose";
 
-const EditoraSchema = new Schema({
+const CategoriaSchema = new Schema({
   nome: {
+    type: String,
+    required: true
+  },
+  descricao: {
     type: String,
     required: true
   },
@@ -12,4 +16,4 @@ const EditoraSchema = new Schema({
   }
 });
 
-export default model("Editora", EditoraSchema);
+export default model("Autor", CategoriaSchema);

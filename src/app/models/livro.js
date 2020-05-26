@@ -9,18 +9,10 @@ const LivroSchema = new Schema({
     type: String,
     required: true
   },
-  categoria: {
-    type: String,
-    required: true
-  },
-  editora: {
-    type: String,
-    required: true
-  },
-  autor: {
-    type: String,
-    required: true
-  },
+  categoria: [{type: Schema.Types.ObjectId, ref: 'Categoria'}],
+  
+  _autor: {type: Schema.Types.ObjectId, ref: 'Autor'},
+  _Editora: {type: Schema.Types.ObjectId, ref: 'Editora' },
   createdAt: {
     type: Date,
     default: Date.now
