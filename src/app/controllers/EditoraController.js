@@ -29,7 +29,7 @@ class EditoraController {
       new: true
     });
 
-    return res.json(livro);
+    return res.json(editora);
   }
 
   async destroy(req, res) {
