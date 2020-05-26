@@ -41,4 +41,4 @@ class CategoriaController {
   }
 }
 
-export default new LivroController();
+export default new CategoriaController();

@@ -16,4 +16,4 @@ const CategoriaSchema = new Schema({
   }
 });
 
-export default model("Autor", CategoriaSchema);
+export default model("Categoria", CategoriaSchema);
