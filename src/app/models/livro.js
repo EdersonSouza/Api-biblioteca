@@ -9,9 +9,22 @@ const LivroSchema = new Schema({
     type: String,
     required: true
   },
+
+  total: {
+    type: Number
+  },
+
+  emprestados: {
+    type: Number
+  },
+
+  disponíveis: {
+    type: Number
+  },
+
   categoria: [{type: Schema.Types.ObjectId, ref: 'Categoria'}],
   
-  _autor: {type: Schema.Types.ObjectId, ref: 'Autor'},
+  _autor: [{type: Schema.Types.ObjectId, ref: 'Autor'}],
   _Editora: {type: Schema.Types.ObjectId, ref: 'Editora' },
   createdAt: {
     type: Date,
