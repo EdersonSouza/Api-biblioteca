@@ -23,14 +23,17 @@ class LivroController {
 
   async update(req, res) {
     const { id } = req.params;
-    const { body } = req;
-
-    const livro = await Livro.findByIdAndUpdate(id, body, {
+    const { body } = req; 
+    const li = await Livro.findById(id);
+    const categoria=li.categoria.push(body.categoria);
+    console.log(li.categoria)
+    const livro = await Livro.findByIdAndUpdate(id, categoria, {
       new: true
     });
 
     return res.json(livro);
   }
+
 
   async destroy(req, res) {
     const { id } = req.params;
