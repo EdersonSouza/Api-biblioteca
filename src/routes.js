@@ -8,6 +8,10 @@ import EditoraController from "./app/controllers/EditoraController";
 
 import CategoriaController from "./app/controllers/CategoriaController";
 
+import EmpresimoController from "./app/controllers/EmprestimoController";
+
+import AlunoController from "./app/controllers/AlunoController";
+
 const routes = Router();
 
 
@@ -43,4 +47,21 @@ routes.post("/categoria", CategoriaController.store);
 routes.put("/categoria/:id", CategoriaController.update);
 routes.delete("/categoria/:id", CategoriaController.destroy);
 
+
+/*alunos*/
+
+routes.get("/alunos", AlunoController.index);
+routes.get("/aluno/:id", AlunoController.show);
+routes.post("/aluno", AlunoController.store);
+routes.put("/aluno/:id", AlunoController.update);
+routes.delete("/aluno/:id", AlunoController.destroy);
+
+
+/*emprestimos*/
+
+routes.get("/emprestimos", EmpresimoController.index);
+routes.get("/emprestimo/:id", EmpresimoController.show);
+routes.post("/emprestimo", EmpresimoController.store);
+routes.put("/emprestimo/:id", EmpresimoController.update);
+routes.delete("/emprestimo/:id", EmpresimoController.destroy);
 export default routes;

@@ -9,7 +9,7 @@ const CategoriaSchema = new Schema({
     type: String,
     required: true
   },
-  livros:[{type: Schema.Types.ObjectId, ref: 'Livro' }],
+  livros:[{livro:{type: Schema.Types.ObjectId, ref: 'Livro' }}],
   createdAt: {
     type: Date,
     default: Date.now

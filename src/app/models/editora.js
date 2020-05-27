@@ -5,7 +5,7 @@ const EditoraSchema = new Schema({
     type: String,
     required: true
   },
-  livros:[{type: Schema.Types.ObjectId, ref: 'Livro' }],
+  livros:[{type: Schema.Types.ObjectId, ref: 'Livro'}],
   createdAt: {
     type: Date,
     default: Date.now

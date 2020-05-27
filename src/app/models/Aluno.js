@@ -12,7 +12,7 @@ const AlunoSchema = new Schema({
 
   },
   fones: [],
-  emprestimos:[{type: Schema.Types.ObjectId, ref: 'Emprestimo' }],
+  emprestimos:[{type: Schema.Types.ObjectId, ref: 'Emprestimo'}],
   createdAt: {
     type: Date,
     default: Date.now
