@@ -27,9 +27,8 @@ class App {
   }
   
   cors() {
-    console.log("estou aqui")
     this.express.use(cors({
-      origin: ["http://localhost:8080", "http://192.168.1.5:8080"],
+      origin: ["http://localhost:8080"],
       methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
       allowedHeaders: ["Content-Type", "Authorization"],
       
