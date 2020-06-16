@@ -5,7 +5,7 @@ const LivroSchema = new Schema({
     type: String,
     required: true
   },
-  descricao: {
+  descrição: {
     type: String,
     required: true
   },
