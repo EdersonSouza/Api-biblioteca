@@ -2,7 +2,7 @@ import Livro from "../models/Livro";
 
 class LivroController {
   async index(req, res) {
-    const livros = await Livro.find();
+    const livros = await Livro.find().populate('categoria');
 
     return res.json(livros);
   }
