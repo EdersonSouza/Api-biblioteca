@@ -25,7 +25,7 @@ routes.delete("/livro/:id", LivroController.destroy);
 
 /*Autor*/
 
-routes.get("/autor", AutorController.index);
+routes.get("/autores", AutorController.index);
 routes.get("/autor/:id", AutorController.show);
 routes.post("/autor", AutorController.store);
 routes.put("/autor/:id", AutorController.update);
