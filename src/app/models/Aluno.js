@@ -12,6 +12,14 @@ const AlunoSchema = new Schema({
 
   },
   fones: [],
+  endereco:{
+    rua: { type: String },
+			numero: { type: Number },
+			bairro: { type: String },
+			cep: { type: String },
+			cidade: { type: String },
+			uf: { type: String },
+  },
   emprestimos:[{type: Schema.Types.ObjectId, ref: 'Emprestimo'}],
   createdAt: {
     type: Date,
