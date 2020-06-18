@@ -1,5 +1,5 @@
 import Livro from "../models/Livro";
-import Autor from "../models/Autor";
+import addCategoria from "./CategoriaController";
 import addAutor from "./AutorController"
 
 class LivroController {
@@ -26,6 +26,14 @@ class LivroController {
 
       }
       addAutor.addLivros(autor)
+    })
+    livro.categoria.map(el => {
+      const categoria = {
+        id:el,
+        _livro: livro._id
+
+      }
+      addCategoria.addLivros(categoria)
     })
     
     return res.json(livro);

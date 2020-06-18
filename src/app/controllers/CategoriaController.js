@@ -32,6 +32,18 @@ class CategoriaController {
     return res.json(categoria);
   }
 
+  async addLivros(body) {
+    let id = body.id
+    console.log(' estou aqui '+ id)
+    const categoria = await Categoria.findById(id);
+    categoria.livros.push(body._livro);
+    const at = await Categoria.findByIdAndUpdate(id, categoria, {
+      new: true
+    });
+    console.log(at)
+   
+  }
+
   async destroy(req, res) {
     const { id } = req.params;
 
