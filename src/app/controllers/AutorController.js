@@ -23,14 +23,29 @@ class AutorController {
 
   async update(req, res) {
     const { id } = req.params;
-    const { body } = req;
-
-    const autor = await Autor.findByIdAndUpdate(id, body, {
+    const { body } = req; 
+    const li = await Autor.findById(id);
+    li._livro.push(body._livro);
+    console.log(li._livro)
+    const autor = await Autor.findOneAndUpdate(id, li, {
       new: true
     });
 
     return res.json(autor);
   }
+
+  async addLivros(body) {
+    let id = body.id
+    console.log(' estou aqui '+ id)
+    const autor = await Autor.findById(id);
+    autor._livro.push(body._livro);
+    const at = await Autor.findByIdAndUpdate(id, autor, {
+      new: true
+    });
+    console.log(at)
+   
+  }
+
 
   async destroy(req, res) {
     const { id } = req.params;

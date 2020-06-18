@@ -1,4 +1,6 @@
 import Livro from "../models/Livro";
+import Autor from "../models/Autor";
+import addAutor from "./AutorController"
 
 class LivroController {
   async index(req, res) {
@@ -17,7 +19,15 @@ class LivroController {
   async store(req, res) {
     const { body } = req;
     const livro = await Livro.create(body);
+    livro._autor.map(el => {
+      const autor = {
+        id:el,
+        _livro: livro._id
 
+      }
+      addAutor.addLivros(autor)
+    })
+    
     return res.json(livro);
   }
 
@@ -25,7 +35,7 @@ class LivroController {
     const { id } = req.params;
     const { body } = req; 
     const li = await Livro.findById(id);
-    li.categoria.push(body.categoria);
+    li.categoria=body.categoria;
     console.log(li.categoria)
     const livro = await Livro.findByIdAndUpdate(id, li, {
       new: true
