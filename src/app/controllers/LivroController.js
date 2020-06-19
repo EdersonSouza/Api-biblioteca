@@ -1,6 +1,7 @@
 import Livro from "../models/Livro";
 import addCategoria from "./CategoriaController";
-import addAutor from "./AutorController"
+import addAutor from "./AutorController";
+import addEditora from "./EditoraController";
 
 class LivroController {
   async index(req, res) {
@@ -35,6 +36,13 @@ class LivroController {
       }
       addCategoria.addLivros(categoria)
     })
+    if(livro._Editora!=null){
+      const editora = {
+        id:livro._Editora,
+        livros:livro._id
+      }
+      addEditora.addLivros(editora)
+    }
     
     return res.json(livro);
   }

@@ -19,8 +19,10 @@ class App {
     mongoose.connect(databaseConfig.uri, {
       useCreateIndex: true,
       useNewUrlParser: true,
-      useFindAndModify: false
+      useFindAndModify: false,
+      useUnifiedTopology: true
     });
+    console.log('MondoDB conectado')
   }
 
   middlewares() {
