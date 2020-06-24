@@ -20,7 +20,8 @@ const AlunoSchema = new Schema({
 			cidade: { type: String },
 			uf: { type: String },
   },
-  emprestimos:[{type: Schema.Types.ObjectId, ref: 'Emprestimo'}],
+  emprestimo:{type: Schema.Types.ObjectId, ref: 'Emprestimo'},
+  devolvidos:[{type: Schema.Types.ObjectId, ref: 'Emprestimo'}],
   createdAt: {
     type: Date,
     default: Date.now
