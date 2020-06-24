@@ -5,6 +5,10 @@ const LivroSchema = new Schema({
     type: String,
     required: true
   },
+  subtitulo: {
+    type: String,
+    
+  },
   descricao: {
     type: String,
     required: true
@@ -19,6 +23,12 @@ const LivroSchema = new Schema({
   },
 
   disponíveis: {
+    type: Number
+  },
+  edicao:{
+    type: String
+  },
+  volume: {
     type: Number
   },
 

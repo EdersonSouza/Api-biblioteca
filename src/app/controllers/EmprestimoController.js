@@ -2,7 +2,9 @@ import Emprestimo from "../models/Emprestimos";
 
 class EmprestimoController {
   async index(req, res) {
-    const emprestimos = await Emprestimo.find();
+    const emprestimos = await Emprestimo.find()
+    .populate('Aluno')
+    .populate('Livro');
 
     return res.json(autores);
   }
