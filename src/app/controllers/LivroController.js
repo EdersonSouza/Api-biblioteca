@@ -5,7 +5,7 @@ import addEditora from "./EditoraController";
 
 class LivroController {
   async index(req, res) {
-    const livros = await Livro.find().populate('categoria');
+    const livros = await Livro.find().populate('categoria').populate('_autor').populate('_Editora');
 
     return res.json(livros);
   }
