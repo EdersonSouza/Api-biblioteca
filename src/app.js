@@ -12,7 +12,7 @@ class App {
     this.database();
     this.middlewares();
     this.routes();
-    
+    this.express.use(express.static(__dirname + '/public'))
   }
 
   database() {
