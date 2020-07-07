@@ -1,5 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
+import bodyParser from "body-parser"
 import cors from 'cors';
 
 import routes from "./routes";
@@ -8,6 +9,7 @@ import databaseConfig from "./config/database";
 class App {
   constructor() {
     this.express = express();
+    this.bodyparser();
     this.cors();
     this.database();
     this.middlewares();
@@ -23,6 +25,11 @@ class App {
       useUnifiedTopology: true
     });
     console.log('MondoDB conectado')
+  }
+
+  bodyparser(){
+    this.express.use(bodyParser.json());
+    this.express.use(bodyParser.urlencoded({extended: false}));
   }
 
   middlewares() {
