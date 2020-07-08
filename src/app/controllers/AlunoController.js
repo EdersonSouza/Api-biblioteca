@@ -2,9 +2,13 @@ import Aluno from "../models/Aluno";
 
 class AlunoController {
   async index(req, res) {
-    const alunos = await Aluno.find();
+    try{
+      const alunos = await Aluno.find();
 
-    return res.json(alunos);
+    return res.json(alunos)
+    } catch (error){
+      res.status(400).send({error:"Falha ao buscar alunos"})
+    }
   }
 
   async show(req, res) {

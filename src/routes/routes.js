@@ -17,7 +17,7 @@ import UserController from "../app/controllers/UserController";
 const routes = Router();
 
 // usuário
-routes.route("/user/:id?")
+routes.route("/user/:id")
     .get(UserController.show)
     .put(UserController.update)
     .delete(UserController.destroy)
