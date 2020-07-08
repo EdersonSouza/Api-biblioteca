@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 import bodyParser from "body-parser"
 import cors from 'cors';
 
-import routes from "./routes";
+import routes from "./routes/routes";
 import databaseConfig from "./config/database";
 
 class App {
