@@ -17,12 +17,10 @@ import UserController from "../app/controllers/UserController";
 const routes = Router();
 
 // usuário
-routes.route("/user/:id")
-    .get(UserController.show)
+routes.route("/user/:id?")
+    .get(UserController.index)
     .put(UserController.update)
     .delete(UserController.destroy)
-routes.route("/user")
-    .get(UserController.index)
     .post( UserController.store)
 
 

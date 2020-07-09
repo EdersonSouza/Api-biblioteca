@@ -2,17 +2,30 @@ import User from "../models/User";
 
 class UserController {
   async index(req, res) {
-    const user = await User.find();
+      const {id} = req.params
+      let user = null
+      if(id){
+        try{
+            user = await User.findById(id);
+        } catch (error){
+            res.status(400).send({error:"usuario informado não existe"})
+        }
+         
+        
+      }else{
+        try{
+            user = await User.find();
+        } catch (error) {
+            res.status(400).send({error:"Falha ao buscar usuários"})
+        }
+         
 
-    return res.json(user);
+        
+      }
+      return res.json(user);
   }
 
-  async show(req, res) {
-    const { id } = req.params;
-    const user = await User.findById(id);
-
-    return res.json(user);
-  }
+  
 
   async store(req, res) {
     const { body } = req;
@@ -24,20 +37,39 @@ class UserController {
   async update(req, res) {
     const { id } = req.params;
     const { body } = req;
+    if(id){
+        try{
+            const user = await User.findByIdAndUpdate(id, body, {
+                new: true
+              });
+          
+              return res.json(user);
+        } catch (error){
+            res.status(400).send({error:"falha ao atualizar usuário"})
+        }
+        
+    }else {
+        res.status(400).send({error:"iforme um id"})
+    }
 
-    const user = await User.findByIdAndUpdate(id, body, {
-      new: true
-    });
-
-    return res.json(user);
+    
   }
 
   async destroy(req, res) {
     const { id } = req.params;
+    if(id){
+        try{
+            await User.findByIdAndDelete(id);
 
-    await User.findByIdAndDelete(id);
+            return res.status(200).send({sucess:"Usuário Excluído com sucesso"});
+        }catch (error){
+            res.status(400).send({error:"não foi possível excluir usuário"})
+        }
+    } else {
+        res.status(400).send({error:"nenhum usuário foi informado"})
+    }
 
-    return res.send();
+    
   }
 }
 
