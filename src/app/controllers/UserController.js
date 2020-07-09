@@ -31,7 +31,7 @@ class UserController {
     
     try {
       if(await User.findOne({nomeUser:req.body.nomeUser}))
-        return res.status(400).send({error:'Já existe um usuário com esse nome, favor tente'})
+        return res.status(400).send({error:'Já existe um usuário com esse nome, favor tente outro nome'})
       
       const user = await User.create(req.body);
 
