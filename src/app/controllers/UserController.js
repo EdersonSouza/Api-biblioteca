@@ -28,10 +28,20 @@ class UserController {
   
 
   async store(req, res) {
-    const { body } = req;
-    const user = await User.create(body);
+    
+    try {
+      if(await User.findOne({nomeUser:req.body.nomeUser}))
+        return res.status(400).send({error:'Já existe um usuário com esse nome, favor tente'})
+      
+      const user = await User.create(req.body);
 
-    return res.json(user);
+      return res.json(user);
+    } catch (error) {
+      return res.status(400).send({error:"não foi possível cadastrar usuário"})
+      
+    }
+
+    
   }
 
   async update(req, res) {
