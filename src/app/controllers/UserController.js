@@ -1,4 +1,5 @@
 import User from "../models/User";
+import bcript from "bcryptjs"
 
 class UserController {
   async index(req, res) {
@@ -24,13 +25,27 @@ class UserController {
       }
       return res.json(user);
   }
-
+  async authenticate(req,res){
+      const {nomeUser,password} = req.body
+      try {
+          const user = await User.findOne({nomeUser});
+          if(!user)
+            return  res.status(400).send({error: "Usuário não encontrado"});
+          if(!await bcript.compare(password, user.password))
+            return res.status(400).send({error:"senha inválida"})
+          return res.json(user)
+      } catch (error) {
+        return res.status(400).send({error:"Algo deu errado na sua autenticação"})
+        
+      }
+  }
   
 
   async store(req, res) {
+    const {nomeUser} = req.body
     
     try {
-      if(await User.findOne({nomeUser:req.body.nomeUser}))
+      if(await User.findOne({nomeUser}))
         return res.status(400).send({error:'Já existe um usuário com esse nome, favor tente outro nome'})
       
       const user = await User.create(req.body);

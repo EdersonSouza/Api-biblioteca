@@ -22,6 +22,7 @@ routes.route("/user/:id?")
     .put(UserController.update)
     .delete(UserController.destroy)
     .post( UserController.store)
+routes.post("/authenticate", UserController.authenticate)
 
 
 
