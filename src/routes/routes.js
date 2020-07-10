@@ -14,6 +14,8 @@ import AlunoController from "../app/controllers/AlunoController";
 
 import UserController from "../app/controllers/UserController";
 
+import authorize from "../app/auth/auth"
+
 const routes = Router();
 
 // usuário
@@ -30,7 +32,7 @@ routes.post("/authenticate", UserController.authenticate)
 
 /*Livros*/
 
-routes.get("/livros", LivroController.index);
+routes.get("/livros",authorize.authorize, LivroController.index);
 routes.post("/livro", LivroController.store);
 routes.route("/livro/:id")
     .get( LivroController.show)

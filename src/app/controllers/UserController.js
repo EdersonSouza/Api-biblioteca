@@ -1,5 +1,6 @@
 import User from "../models/User";
 import bcript from "bcryptjs"
+import * as jwt from "../auth/jwt"
 
 class UserController {
   async index(req, res) {
@@ -33,7 +34,12 @@ class UserController {
             return  res.status(400).send({error: "Usuário não encontrado"});
           if(!await bcript.compare(password, user.password))
             return res.status(400).send({error:"senha inválida"})
-          return res.json(user)
+          
+          const token = await jwt.sign({
+            id: user._id
+             
+          });
+          return res.send({user,token})
       } catch (error) {
         return res.status(400).send({error:"Algo deu errado na sua autenticação"})
         
