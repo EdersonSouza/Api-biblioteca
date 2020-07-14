@@ -41,7 +41,7 @@ routes.route("/livro/:id")
 
 /*Autor*/
 
-routes.get("/autores", AutorController.index);
+routes.get("/autores",AutorController.index);
 routes.post("/autor", AutorController.store);
 routes.route("/autor/:id")
     .get( AutorController.show)

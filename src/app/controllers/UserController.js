@@ -1,6 +1,6 @@
 import User from "../models/User";
 import bcript from "bcryptjs"
-import * as jwt from "../auth/jwt"
+import * as jwt from "../auth/auth"
 
 class UserController {
   async index(req, res) {
@@ -36,7 +36,7 @@ class UserController {
             return res.status(400).send({error:"senha inválida"})
           
           const token = await jwt.sign({
-            id: user._id
+            user: user
              
           });
           return res.send({user,token})
