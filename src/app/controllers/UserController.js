@@ -102,6 +102,21 @@ class UserController {
 
     
   }
+
+  async createUser() {
+    await User.find().exec(function(err,dados){
+      if(err) console.log("erro ao acessar banco")
+      if(dados.length===0){
+        const user={
+          nomeUser:"BibliotecaBraz",
+          password:"123456"
+        }
+         User.create(user);
+        console.log("usuário criado com sucesso " + user.nomeUser + '/n' + user.password)
+      }
+    })
+    
+  }
 }
 
 export default new UserController();

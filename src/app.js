@@ -5,6 +5,7 @@ import cors from 'cors';
 
 import routes from "./routes/routes";
 import databaseConfig from "./config/database";
+import user from "./app/controllers/UserController"
 
 class App {
   constructor() {
@@ -14,6 +15,7 @@ class App {
     this.database();
     this.middlewares();
     this.routes();
+    this.createUser();
     this.express.use(express.static(__dirname + '/public'))
   }
 
@@ -48,6 +50,10 @@ class App {
   routes() {
     this.express.use(routes);
   }
+  createUser(){
+    user.createUser();
+  }
+  
 }
 
 export default new App().express;
