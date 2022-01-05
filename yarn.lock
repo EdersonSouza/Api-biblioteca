@@ -976,10 +976,10 @@ node-modules-regexp@^1.0.0:
   resolved "https://registry.yarnpkg.com/node-modules-regexp/-/node-modules-regexp-1.0.0.tgz#8d9dbe28964a4ac5712e9131642107c71e90ec40"
   integrity sha1-jZ2+KJZKSsVxLpExZCEHxx6Q7EA=
 
-node-windows@^1.0.0-beta.1:
-  version "1.0.0-beta.1"
-  resolved "https://registry.yarnpkg.com/node-windows/-/node-windows-1.0.0-beta.1.tgz#a3442389c2981a5f504777172a50c912c5df2e6b"
-  integrity sha512-wWAM7zRvu4ZrBGsEI+7oGcoGr5jEeHgxzdx4DNEFddK/gh1yOsy782nCcShjOZ4Kffy8zDfmCw0Femxvib/5Rw==
+node-windows@^1.0.0-beta.6:
+  version "1.0.0-beta.6"
+  resolved "https://registry.yarnpkg.com/node-windows/-/node-windows-1.0.0-beta.6.tgz#04bf66946760bb8507f1d1326267587b56b8c8b3"
+  integrity sha512-Ehig70tF9A9Wns4VMpnsvT7dyat/d2fio6C4g1RAEaAi+piAjN6Wc+/fdSOifl8YCCncVllijv5Q9wdyHvdgeA==
   dependencies:
     optimist "~0.6.0"
     xml "0.0.12"
